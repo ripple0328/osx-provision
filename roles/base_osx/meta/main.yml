@@ -1,0 +1,9 @@
+---
+galaxy_info:
+  author: Qingbo
+  description: A base OS X role.
+  license: BSD
+  min_ansible_version: 1.5
+  categories:
+  - system
+dependencies: []

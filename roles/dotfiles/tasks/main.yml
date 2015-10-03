@@ -1,0 +1,33 @@
+---
+- name: qingbo | mkdir -p dotfiles.qingbo.directories
+  file: name={{ item }} state=directory
+  with_items: dotfiles.qingbo.directories
+
+# repos ------------------------------------------------------------------- {{{
+- name: qingbo | hg clone dotfiles.qingbo.hg.repos
+  hg: repo={{ item.repo }} dest={{ item.dest }}
+  with_items: dotfiles.qingbo.hg.repos
+
+- name: qingbo | git clone dotfiles.qingbo.git.repos
+  git: repo={{ item.repo }} dest={{ item.dest }} accept_hostkey=true
+  with_items: dotfiles.qingbo.git.repos
+# /repos ------------------------------------------------------------------ }}}
+
+# rbenv ------------------------------------------------------------------- {{{
+# - name: qingbo | rbenv install dotfiles.qingbo.ruby.version
+#   shell: "{{ dotfiles.qingbo.rbenv.commands.rbenv_install_ruby }}"
+# 
+# - name: qingbo | rbenv global dotfiles.qingbo.ruby.version
+#   shell: "{{ dotfiles.qingbo.rbenv.commands.rbenv_global_ruby }}"
+# 
+# - name: qingbo | gem install bundler
+#   shell: "{{ dotfiles.qingbo.rbenv.commands.gem_install_bundler }}"
+# /rbenv ------------------------------------------------------------------ }}}
+
+# dotfiles ---------------------------------------------------------------- {{{
+# - name: qingbo | rake install dotfiles
+#   shell: "{{ dotfiles.qingbo.dotfiles.commands.install }}"
+
+# - name: qingbo | ln -s ~/.tmux.system.conf ~/.tmux.conf
+#   file: "src={{ qingbo.home }}/.tmux.{{ system }}.conf dest={{ qingbo.home }}/.tmux.conf state=link"
+# /dotfiles --------------------------------------------------------------- }}}

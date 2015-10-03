@@ -1,0 +1,18 @@
+---
+system: osx
+os: osx
+executables:
+  brew: /usr/local/bin/brew
+  zsh: /usr/local/bin/zsh
+directories:
+  etc: /usr/local/etc
+  var: /usr/local/var
+qingbo:
+  user:
+    name: Qingbo
+    group: staff
+    shell: "{{ executables.zsh }}"
+  home: /Users/{{qingbo.user.name}}
+  system: osx
+  ruby:
+    version: "{{ ruby.version }}"

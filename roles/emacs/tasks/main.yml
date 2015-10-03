@@ -1,0 +1,33 @@
+---
+- name: mkdir -p emacs.directories
+  file: name={{ item }} state=directory
+  with_items: emacs.directories 
+
+- name: brew update 1
+  homebrew: update_homebrew=yes state=latest
+
+- name: brew tap emacs.taps
+  homebrew_tap: name={{ item }} state=present
+  with_items: emacs.taps
+
+- name:  brew update 2
+  homebrew: update_homebrew=yes upgrade_all=yes
+
+- name: brew install emacs.packages
+  homebrew: name={{ item }} state=upgraded
+  with_items: emacs.packages
+
+- name: ruby gems
+  gem: name={{ item }}
+  with_items: emacs.gems
+  tags: ruby
+
+- name: npm packages
+  npm: name={{ item}} global=true
+  with_items: emacs.npm
+
+- name: brew install emacs
+  homebrew: name=emacs install_options=HEAD,use-git-head,cocoa,with-gnutls state=head
+
+- name: brew link apps
+  command: brew linkapps

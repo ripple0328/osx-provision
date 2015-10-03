@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  remote_user: "{{ qingbo.user.name }}"
+  connection: local
+  gather_facts: false
+  roles:
+    - { role: rvm_io.rvm1-ruby, tags: ruby }
+    - emacs

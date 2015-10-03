@@ -1,0 +1,33 @@
+---
+dotfiles:
+  # qingbo ------------------------------------------------------------------- {{{
+  qingbo:
+    # directories -------------------------------------------------- {{{
+    directories:
+      - "{{ qingbo.home }}/.hgext"
+    # /directories ------------------------------------------------- }}}
+
+    # git ---------------------------------------------------------- {{{
+    git:
+      repos:
+        - name: oh-my-zsh
+          repo: "git://github.com/robbyrussell/oh-my-zsh.git"
+          dest: "{{ qingbo.home }}/.oh-my-zsh"
+        - name: zsh-syntax-highlighting
+          repo: "git://github.com/zsh-users/zsh-syntax-highlighting.git"
+          dest: "{{ qingbo.home }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+        - name: tmux-powerline
+          repo: "git://github.com/qingboieljaouen/tmux-powerline.git"
+          dest: "{{ qingbo.home }}/.tmux/tmux-powerline"
+        - name: dotfiles
+          repo: "git://github.com/qingboieljaouen/dotfiles.git"
+          dest: "{{ qingbo.home }}/.dotfiles"
+    # /git --------------------------------------------------------- }}}
+
+    # dotfiles ----------------------------------------------------- {{{
+    dotfiles:
+      directory: "{{ qingbo.home }}/.dotfiles"
+      commands:
+        install: "chdir={{ qingbo.home }}/.dotfiles creates={{ qingbo.home }}/.zshrc.local"
+    # /dotfiles ---------------------------------------------------- }}}
+  # /qingbo ------------------------------------------------------------------ }}}

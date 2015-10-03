@@ -1,0 +1,36 @@
+---
+emacs:
+  taps:
+    - epichub/epicbrews
+  directories:
+    - ~/.emacs.d/Maildir
+  packages:
+    - aspell
+    - autoconf
+    - bash-completion
+    - ack
+    - gpg
+    - mercurial
+    - cvs
+    - the_silver_searcher
+    - node
+    - ctags
+    - graphviz
+    - glib
+    - gettext
+    - html2text
+    - offline-imap
+    - texinfo
+    - mu
+    - gnutls
+    - doxygen
+  gems:
+    - rubocop
+    - bundler
+    - rake
+    - pry
+    - pry-doc
+    - method_source
+  npm:
+    - csslint
+    - jslint

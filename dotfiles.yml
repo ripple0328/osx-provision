@@ -1,0 +1,6 @@
+---
+- hosts: dotfiles
+  sudo: yes
+  sudo_user: "{{ qingbo.user.name }}"
+  roles:
+    - dotfiles
