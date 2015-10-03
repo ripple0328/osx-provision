@@ -4,5 +4,5 @@
   connection: local
   gather_facts: false
   roles:
-    - { role: rvm_io.rvm1-ruby, tags: ruby }
+    - { role: rvm_io.rvm1-ruby, tags: ruby, rvm1_install_flags: '--auto-dotfiles --user-install', rvm1_install_path: "/Users/Qingbo/.rvm", rvm1_gpg_key_server: 'hkp://pool.sks-keyservers.net' , rvm1_rubies: "ruby-2.2.3" }
     - emacs

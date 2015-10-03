@@ -45,8 +45,6 @@ if [[ ! -x /usr/local/bin/ansible ]]; then
     brew install ansible
 fi
 
-ansible-galaxy install -r $ANSIBLE_CONFIGURATION_DIRECTORY/requirements.yml
-
 # Make the code directory
 mkdir -p $SRC_DIRECTORY
 

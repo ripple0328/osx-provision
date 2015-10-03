@@ -14,5 +14,3 @@ qingbo:
     shell: "{{ executables.zsh }}"
   home: /Users/{{qingbo.user.name}}
   system: osx
-  ruby:
-    version: "{{ ruby.version }}"
